@@ -1,5 +1,5 @@
-#Import array module
-import array
+#Import array function from the array module
+from array import array
 
 #Bind a string to a name
 test_string = "apple"
@@ -16,7 +16,7 @@ test_list.append(test_string)
 print("Test List:" , test_list , "\n")
 
 #Create an array of a specific data type and output array
-test_array = array.array('i', [5, 3, 11, 19, 3, 3, 53])
+test_array = array('i', [5, 3, 11, 19, 3, 3, 53])
 
 #Count the occurences of a value in the array and output the result
 x0 = test_array.count(3)
@@ -25,4 +25,22 @@ print("3s in Test Array:" , x0)
 #Insert a value into the array + output array before and after
 print("Test Array(pre-insert):" , test_array)
 test_array.insert(2, -251)
-print("Test Array(post-insert):" , test_array)
+print("Test Array(post-insert):" , test_array , "\n")
+
+#Convert array to list + output
+print(test_array.tolist())
+x1 = test_array.pop(4)
+print(x1)
+print(test_array)
+test_array.insert(4, x1)
+print(test_array)
+
+#Iterate a list
+y0 = 0
+y0_list = []
+
+while y0 < 100:
+    y0_list.append(y0)
+    y0 = y0 + 1
+
+print(y0_list[55])
