@@ -1,5 +1,5 @@
 #Import array function from the array module
-from array import array
+from array import array as uhray
 
 #Bind a string to a name
 test_string = "apple"
@@ -16,7 +16,7 @@ test_list.append(test_string)
 print("Test List:" , test_list , "\n")
 
 #Create an array of a specific data type and output array
-test_array = array('i', [5, 3, 11, 19, 3, 3, 53])
+test_array = uhray('i', [5, 3, 11, 19, 3, 3, 53])
 
 #Count the occurences of a value in the array and output the result
 x0 = test_array.count(3)
