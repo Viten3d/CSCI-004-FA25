@@ -1,0 +1,4 @@
+'array' is a module for python which contains multiple functions including array (array.array())
+  Modules are collections of related functions organized under (bound to) a specific namespace. In this case the namespace and the function have the same name.
+    Modules need to be imported (e.g. import array) to become available for use.
+    Namespaces are where variables are stored.
