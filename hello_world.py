@@ -8,7 +8,7 @@ test_string = "apple"
 test_integer = "818"
 
 #Create a list with various data types and output a specific value from it
-test_list = [2.718, "book", True, 1706]
+test_list = [2.718, "book", True, 1706, ["a", "b"]]
 print("4th value in Test List:" , test_list[3])
 
 #Add a value to the end of the list and output the result
@@ -35,12 +35,19 @@ print(test_array)
 test_array.insert(4, x1)
 print(test_array)
 
-#Iterate a list
+#Create variables
 y0 = 0
 y0_list = []
 
-while y0 < 100:
+#Use a 'while' loop to auto-iterate a list
+while y0 < 10:
     y0_list.append(y0)
     y0 = y0 + 1
 
-print(y0_list[55])
+print(y0_list[6])
+
+y0_array = uhray('i', y0_list)
+print(y0_array)
+
+test_array.extend(y0_array)
+print(test_array)
