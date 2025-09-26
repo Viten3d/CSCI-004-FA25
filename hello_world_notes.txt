@@ -1,7 +1,7 @@
 >>What is an array in Python?
 
 "array" is a module for python which contains a function called "array" (used as 'array.array()' by default).
-  Modules are collections of related functions organized under (bound to) a specific namespace. In this case the namespace and the relevant function have the same name.
+  Modules are collections of related functions organized under (bound to) a certain namespace. In this case the namespace and function have the same name.
     Modules need to be imported (e.g. import array) to become available for use.
     Namespaces represent a set of variables/functions, allowing for those sets to easily be called.
   Functions are sets of instructions enabling you to manipulate some given inputs into an unambiguous output of the same type.
@@ -51,10 +51,16 @@ List functions(used):
   'append' (see array functions)
 
 
-
 >>Bonus Notes
 
-printing
+The print function, 'print()', lets you output objects as lines of text in the chosen text stream file (default file: sys.stdout).
+  A text stream file is where interpreted data is returned.
 
-loops
-  
+'while' is a type of compound statement used for repeated execution of some task(s) for as long as a given expression is true.
+  Ex(assume n = 0 and k = 0):
+    while n != 4:
+        k = k + 2  -> print(k) -> 8
+        n = n + 1
+  A compound statement is a group of statements, with the execution of those statements altered in some manner.
+    Statements are pieces of code that can be categorized as an expression or some specific syntax denoted by a keyword (like 'while').
+  An expression is a set of values and operators that can be evaluated to give some result.
