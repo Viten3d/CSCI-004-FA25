@@ -1,4 +1,60 @@
-'array' is a module for python which contains multiple functions including array (array.array())
-  Modules are collections of related functions organized under (bound to) a specific namespace. In this case the namespace and the function have the same name.
+>>What is an array in Python?
+
+"array" is a module for python which contains a function called "array" (used as 'array.array()' by default).
+  Modules are collections of related functions organized under (bound to) a specific namespace. In this case the namespace and the relevant function have the same name.
     Modules need to be imported (e.g. import array) to become available for use.
-    Namespaces are where variables are stored.
+    Namespaces represent a set of variables/functions, allowing for those sets to easily be called.
+  Functions are sets of instructions enabling you to manipulate some given inputs into an unambiguous output of the same type.
+
+The array function lets you create a list that is constrained by a specific typecode.
+  Lists in Python are portable sets of data (numbers, characters, booleans, collections) ordered via index.
+    This "meta-ordering" of lists makes calling a value from a specific location trivial.
+  Typecodes in this instance represent data types restricted by 'C Type'.
+    C Types are data types used in C (programming language). These are used within Python to aid in compatibility with other programs written in C.
+
+
+>>How do you use the array feature in Python?
+
+Import the array module so that you may call desired functions.
+  Use 'as' when importing to call a more convienient name when needed (i.e. import array as arr -> arr.array())
+  Use 'from' to bind a certain function/submodule to its parent namespace (i.e. from array import array -> array())
+
+Syntax provided in the documentation for creating an array: array.array(typecode[, initializer])
+  First "array" calls module, second "array" calls function, input typecode argument (i.e. 'i' for signed integers), input starting sequence as a list (i.e. [ -1, 2, 5])
+    Ex: sample_array = array.array('i', [ -1, 2, 5])
+
+Array functions(used):
+  'append' adds a value to the end of an array (this also works for lists).
+    Ex: sample_array.append(5) -> print(sample_array) -> array('i', [ -1, 2, 5, 5]
+  'count' will count the number of occurences of a specific value within an array.
+    Ex: print(sample_array.count(5)) -> 2
+  'extend' adds an "iterable" to the end of an array.
+    Ex(using 'sample_list' from the list section): sample_array.extend(sample_list) -> print(sample_array) -> array('i', [ -1, 2, 5, 5, 654, 098]
+    An iterable is an object that can return each of its values, one at a time (like lists and arrays).
+      Objects are any data with value and defined functions.
+  'insert' will insert a value into a specific (indexed) location within an array.
+    Syntax: <named_array>.insert(<index>, <value>) || Doc. syntax: array.insert(i, x)
+    Ex: sample_array.insert(1, 73) -> print(sample_array) -> array('i', [ -1, 73, 2, 5, 5, 654, 098]
+  'pop' removes a specific value from the array and returns that value. (input index)
+    Ex: print(sample_array.pop(5)) -> 654 -> print(sample_array) -> array('i', [ -1, 73, 2, 5, 5, 098]
+    The default argument (no input) is '-1' which will chose the last value in the array.
+  'tolist' converts the array into a list.
+    Ex: print(sample_array.tolist()) -> [ -1, 73, 2, 5, 5, 654, 098]
+
+
+>>How do you use lists in Python?
+
+Create a list by inputting some values (or no values for an empty list) in brackets, separated by comma: ["xyz", 123, False, []]
+  Make the list callable by binding it to a named variable: sample_list = [654, 098]
+
+List functions(used):
+  'append' (see array functions)
+
+
+
+>>Bonus Notes
+
+printing
+
+loops
+  
