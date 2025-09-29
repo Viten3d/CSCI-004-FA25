@@ -1,1 +1,20 @@
+>>What are functions?
 
+Functions are portable series of instructions which return an unambiguous output.
+Function Components:
+  Name: The function needs to be bound to a name to be callable
+  Type: The logic of the function will only be reliable if the correct input data type(s) are used
+  Parameters: Arguments/inputs required for function to work properly
+  Logic: The series of instructions within the function to be executed
+
+Psuedocode Example:
+  test_func0 = x + 2
+    Name: func_1 | Type: numbers(integers) | Parameters: 'x', Range:ℤ | Logic: 'x + 2', Increase the input value by 2 via addition
+
+
+>>What do I want these functions to do?
+
+>Function 0
+
+
+>>How do I bind functions to a callable namespace?
