@@ -27,9 +27,10 @@ Steps:
   Output the list of removed values
 
 >Function 1
+Calculate alcohol by volume(abv) using specific gravity measurements from hydrometer (for fermentation)
 
 
 >Function 2
-
+approximate square root
 
 >>How do I bind functions to a callable namespace?
