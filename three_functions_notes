@@ -1,0 +1,36 @@
+>>What are functions?
+
+Functions are portable series of instructions which return an unambiguous output
+Function Components:
+  Name: The function needs to be bound to a name to be callable
+  Type: The logic of the function will only be reliable if the correct input data type(s) are used
+  Parameters: Arguments/inputs required for function to work properly
+  Logic: The series of instructions within the function to be executed
+
+Psuedocode Example:
+  test_func0 = x + 2
+    Name: func_1 | Type: numbers(integers) | Parameters: 'x', Range:ℤ | Logic: 'x + 2', Increase the input value by 2 via addition
+
+
+>>What do I want these functions to do?
+
+>Function 0
+Remove all even number values from a given list
+Steps:
+  Have the user input eight integer values
+    Use a 'while' statement to append each integer to a list
+  Output the initial list -> print(list)
+  Test every value in the list (starting from the end, len(list) - 1) for its "even-ness" -> remainder(list[i] / 2) == 0
+    Use a 'while' statement to scan through the list by index
+      Use an 'if' statement to append even values to a new list and remove them from the initial list
+  Output the new list
+  Output the list of removed values
+
+>Function 1
+Calculate alcohol by volume(abv) using specific gravity measurements from hydrometer (for fermentation)
+
+
+>Function 2
+approximate square root
+
+>>How do I bind functions to a callable namespace?
