@@ -15,9 +15,11 @@ Psuedocode Example:
 >>What do I want these functions to do?
 
 >Function 0
-Remove all even number values from a given list
+Goal: Remove all even number values from a given list.
 Steps:
-  Have the user input eight integer values
+  Import the remainder function from math module
+  Have the user choose the length of the list
+  Have the user input integer values
     Use a 'while' statement to append each integer to a list
   Output the initial list -> print(list)
   Test every value in the list (starting from the end, len(list) - 1) for its "even-ness" -> remainder(list[i] / 2) == 0
