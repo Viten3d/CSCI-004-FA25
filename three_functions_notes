@@ -29,10 +29,17 @@ Steps:
   Output the list of removed values
 
 >Function 1
-Calculate alcohol by volume(abv) using specific gravity measurements from hydrometer (for fermentation)
-
+Goal: Calculate alcohol by volume (abv) using specific gravity (s.g.) measurements from hydrometer (for fermentation)
+  Common formula: abv = 131.25 * (grav_init - grav_fin)
+Steps:
+  Have the user input the starting s.g. and final s.g. values
+  Run inputs through abv formula
+  Output result
 
 >Function 2
 approximate square root
 
->>How do I bind functions to a callable namespace?
+>>How do I bind functions to a callable name?
+
+Use the 'def' statement to bind the function (executable statements) to a name, within the current namespace. -> def func():
+
