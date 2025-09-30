@@ -37,9 +37,17 @@ Steps:
   Output result
 
 >Function 2
-approximate square root
+Goal: Approximate the square root of some integer using the Newton-Raphson method
+Starting with the base formula (x[0] = guess): x[1] = x[0] - (f(x) / f'(x)) -> then further iterate -> x[n+1] = x[n] - (f(x) / f'(x))
+  For f(x), we have a radicand 'r' and we want to find 'x' where x^2 = r -> f(x) = x^2 - r -> f'(x) = 2x
+    After plugging those in we get: x[n+1] = 0.5 * (x[n] + (r / x[n]))
+Steps:
+  Input the value you want to know the square root of (i.e. radicand)
+  Input an educated guess of a square root value
+  Use a 'while' statement to iterate many times for increased accuracy of approximation
+  Return approximated value
+
 
 >>How do I bind functions to a callable name?
 
 Use the 'def' statement to bind the function (executable statements) to a name, within the current namespace. -> def func():
-
