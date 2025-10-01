@@ -8,17 +8,3 @@ def abvcalc(igrav=0, fgrav=0):
 
 #output called function
 #print("ABV: " , abvcalc(1.09, 1.01) , "%", sep='')
-
-
-
-
-"""first attempt
-#input s.g. measurements
-igrav = float(input('Starting S.G.: '))
-fgrav = float(input('Final S.G.: '))
-
-#calculate abv using formula
-abv = 131.25 * (igrav - fgrav)
-
-print("Alcohol by volume:" , abv)
-"""
