@@ -17,20 +17,15 @@ Psuedocode Example:
 >Function 0
 Goal: Remove all even number values from a given list.
 Steps:
-  Import the remainder function from math module
-  Have the user choose the length of the list
-  Have the user input integer values
-    Use a 'while' statement to append each integer to a list
-  Output the initial list -> print(list)
+  Have the user input a list of integers
   Test every value in the list (starting from the end, len(list) - 1) for its "even-ness" -> remainder(list[i] / 2) == 0
     Use a 'while' statement to scan through the list by index
-      Use an 'if' statement to append even values to a new list and remove them from the initial list
+      Use an 'if' statement to remove even values from the list
   Output the new list
-  Output the list of removed values
 
 >Function 1
 Goal: Calculate alcohol by volume (abv) using specific gravity (s.g.) measurements from hydrometer (for fermentation)
-  Common formula: abv = 131.25 * (grav_init - grav_fin)
+  Standard formula: abv = 131.25 * (grav_init - grav_fin)
 Steps:
   Have the user input the starting s.g. and final s.g. values
   Run inputs through abv formula
@@ -50,4 +45,4 @@ Steps:
 
 >>How do I bind functions to a callable name?
 
-Use the 'def' statement to bind the function (executable statements) to a name, within the current namespace. -> def func():
+Use the 'def' statement to bind the function (executable statements) to a name, within the current namespace. -> def func(<args>): <logic>
