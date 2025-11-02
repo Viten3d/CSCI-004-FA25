@@ -1,6 +1,9 @@
 >>What is a stack?
 
-A stack is an arrangement of some elements, mutable by adding or removing elements and ordered by "in-stack" age, wherein a 'head' and a 'tail' component exist. The 'tail' is the oldest element in the stack. The 'head' is the youngest. Elements are to be removed from the 'head' position only.
+A stack is an arrangement of some elements, mutable by adding or removing elements and ordered by "in-stack" age, wherein a 'head' and a 'tail' component exist.
+The 'tail' is the oldest element in the stack.
+The 'head' is the youngest.
+Elements are to be removed from the 'head' position only.
 
 >>How do you create a stack-like stucture in Python?
 
