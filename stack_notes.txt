@@ -1,19 +1,18 @@
 >>What is a stack?
 
-A stack is an ordered arrangement of some elements wherein the most recently added element in the stucture is to be removed first.
-The head (last/youngest element added) and the tail (first/oldest element added) are to be accounted for.
+A stack is an arrangement of some elements, mutable by adding or removing elements and ordered by "in-stack" age, wherein a 'head' and a 'tail' component exist. The 'tail' is the oldest element in the stack. The 'head' is the youngest. Elements are to be removed from the 'head' position only.
 
 >>How do you create a stack-like stucture in Python?
 
 Initiate a framework for the stack to exist in using a list.
     stack = []
 
-Create a function to add elements to the head posistion of the stack using the "insert" mutable sequence operation.
+Create a function to add elements to the head posistion of the stack using the 'insert' mutable sequence operation.
     def add(stack, head):
         stack.insert(0, head)  # first arg is index, index = 0 -> head
         return stack
 
-Create a function to remove the elements from the head posistion of the stack using the "pop" mutable sequence operation.
+Create a function to remove the elements from the head posistion of the stack using 'pop'.
     def remove(stack):
         stack.pop(0)
         return stack
@@ -22,6 +21,6 @@ Create a function to retrieve the head value.
     def head(stack):
         return stack[0]
 
-Create a function to retrieve the tail value.
-    def tail():
-        return stack[-1]
+Create a function to retrieve the tail index + value.
+    def tail(stack):
+        return stack[len(stack) - 1] # stack length - 1 = last index (tail index)
