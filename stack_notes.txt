@@ -5,17 +5,18 @@ The 'tail' is the oldest element in the stack.
 The 'head' is the youngest.
 Elements are to be removed from the 'head' position only.
 
->>How do you create a stack-like stucture in Python?
+>>How do you create a stack-like structure in Python?
+>(with the head as index 0: [H, ..., T])
 
 Initiate a framework for the stack to exist in using a list.
     stack = []
 
-Create a function to add elements to the head posistion of the stack using the 'insert' mutable sequence operation.
+Create a function to add elements to the head position of the stack using the 'insert' mutable sequence operation.
     def add(stack, head):
         stack.insert(0, head)  # first arg is index, index = 0 -> head
         return stack
 
-Create a function to remove the elements from the head posistion of the stack using 'pop'.
+Create a function to remove the elements from the head position of the stack using 'pop'.
     def remove(stack):
         stack.pop(0)
         return stack
@@ -24,6 +25,26 @@ Create a function to retrieve the head value.
     def head(stack):
         return stack[0]
 
-Create a function to retrieve the tail index + value.
+Create a function to retrieve the tail + index value.
     def tail(stack):
-        return stack[len(stack) - 1] # stack length - 1 = last index (tail index)
+        return f"{stack[len(stack) - 1]} @ i({len(stack) - 1})" # 'stack length' - 1 = last index (tail index) || OR stack[-1], because Python.
+
+>(with the tail as index 0: [T, ..., H])
+
+Add elements to the back (final index) of the list.
+    def add(stack, head):
+        stack.append(head)
+        return stack
+
+Remove the elements from the back of the list.
+    def remove(stack):
+        stack.pop(len(stack) - 1) # OR pop(-1)
+        return stack
+
+Retrieve the head + index value.
+    def head(stack):
+        return f"{stack[len(stack) - 1]} @ i({len(stack) - 1})"
+
+Retrieve the tail value.
+    def tail(stack):
+        return stack[0]
