@@ -6,10 +6,11 @@ The 'head' is the youngest.
 Elements are to be removed from the 'head' position only.
 
 >>How do you create a stack-like structure in Python?
->(with the head as index 0: [H, ..., T])
 
 Initiate a framework for the stack to exist in using a list.
     stack = []
+
+>(with the head as index 0: [H, ..., T])
 
 Create a function to add elements to the head position of the stack using the 'insert' mutable sequence operation.
     def add(stack, head):
