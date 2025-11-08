@@ -1,0 +1,47 @@
+>>What is a calculator? (in this context)
+A program that takes numerical values and performs some desired operation (logic) with those values, returning the result.
+    A program is a set of functions (smaller sets of instructions) combined to complete a task.
+
+>>How do I want the calculator to work?
+
+Receive two numerical arguments (integers) to be evaluated and one to determine the method of evaluation. Return the end result.
+    Use 'if' compound statements (if/elif/else) to ascertain the specific operation to be performed.
+        Compound Statements: (recall hello_world_notes.txt)
+
+>>(Python)
+
+>Define the function and its arguments with the option for no arguments. (calc(n1,op,n2) may be more intuitive?)
+    def calc(n1=None, n2=None, op=None):
+
+>Return the operator codes when no arguments are given.
+    if n1 == None and n2 == None and op == None:
+        return f"Add: 0\nSub: 1\nMul: 2\nDiv: 3"
+
+>Evaluate arguments only if all arguments are received and they are integers.
+    if type(n1) == int and type(n2) == int and type(op) == int:
+        # perform desired operation statement
+    else:
+        # return <error>
+    
+    OR, for just checking that all arguments are given:
+        if n1 != None and n2 != None and op != None:
+
+>Addition statement
+    if op == 0:
+        return x + y
+
+>Subtraction statement; using 'elif' to avoid checking subsequent statements if 0 < op < 4
+    elif op == 1:
+        return x - y
+
+>Multiplication statement
+    elif op == 2:
+        return x * y
+
+>Division statement
+    elif op == 3:
+        return x / y
+
+>Incorrect operator code statement
+    else:
+        return <error>
