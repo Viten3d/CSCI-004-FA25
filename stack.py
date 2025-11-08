@@ -1,4 +1,5 @@
 #Stack functions
+#(with the head as index 0: [H, ..., T])
 
 def add(stack, element):      # define function/args
     stack.insert(0, element)  # first arg is index, index = 0 -> head
