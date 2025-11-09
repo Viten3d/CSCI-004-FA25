@@ -6,7 +6,10 @@ A program that takes numerical values and performs some desired operation (logic
 
 Receive two numerical arguments (integers) to be evaluated and one to determine the method of evaluation. Return the end result.
     Use 'if' compound statements (if/elif/else) to ascertain the specific operation to be performed.
-        Compound Statements: (recall hello_world_notes.txt)
+        'if': If some element(s) meet some criteria, then perform some set of instructions.
+        'elif': If the prior 'if' did not have its criteria met, then run *this* 'if' statement instead.
+        'else': If the prior 'if' or 'elif' did not have its criteria met, then perform some set of instructions.
+        Compound Statements: (recall lines 64 and 65 of hello_world_notes.txt)
 
 >>(Python)
 
