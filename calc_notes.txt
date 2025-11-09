@@ -30,7 +30,7 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
     if op == 0:
         return x + y
 
->Subtraction statement; using 'elif' to avoid checking subsequent statements if 0 < op < 4
+>Subtraction statement; using 'elif' to avoid checking subsequent statements if 0 < op < 6.
     elif op == 1:
         return x - y
 
@@ -41,6 +41,17 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
 >Division statement
     elif op == 3:
         return x / y
+
+>Power statement
+    elif op == 4:
+        return x ** y
+
+>Concatenation statement; convert integers to strings so values are concatenated instead of added; convert result back to integer for use in other calculations.
+    elif op == 5:
+        x = str(x)
+        y = str(y)
+        temp = x + y
+        return int(temp)
 
 >Incorrect operator code statement
     else:
