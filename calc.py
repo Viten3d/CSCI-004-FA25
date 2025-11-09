@@ -4,20 +4,20 @@ def calc(n1=None, n2=None, op=None):             # define function and arguments
 
     # if and only if all args are given *and* arg types are integers, then run desired operation
     elif type(n1) == int and type(n2) == int and type(op) == int:
-        if op == 0:
-            return n1 + n2    # addition statement
-        elif op == 1:
-            return n1 - n2    # subtraction statement
-        elif op == 2:
-            return n1 * n2    # multiplication statement
-        elif op == 3:
-            return n1 / n2    # division statement
-        elif op == 4:
-            return n1 ** n2   # power statement
-        elif op == 5:
+        if op == 0:           # addition statement
+            return n1 + n2
+        elif op == 1:         # subtraction statement
+            return n1 - n2
+        elif op == 2:         # multiplication statement
+            return n1 * n2
+        elif op == 3:         # division statement
+            return n1 / n2
+        elif op == 4:         # power statement
+            return n1 ** n2
+        elif op == 5:         # concatenation statement
             n1 = str(n1)      # convert n1 and n2 to strings
             n2 = str(n2)
-            x = n1 + n2       # concatenation statement
+            x = n1 + n2
             return int(x)     # return result as an integer for use in further calculations (see line 41)
         else:
             return "Invalid operator argument."
