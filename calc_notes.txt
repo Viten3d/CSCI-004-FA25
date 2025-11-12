@@ -1,39 +1,67 @@
->>What is a calculator? (in this context)
+>>What is a calculator?
 A program that takes numerical values and performs some desired operation (logic) with those values, returning the result.
     A program is a set of functions (smaller sets of instructions) combined to complete a task.
 
 >>How do I want the calculator to work?
-
 Receive two numerical arguments (integers) to be evaluated and one to determine the method of evaluation. Return the end result.
     Use 'if' compound statements (if/elif/else) to ascertain the specific operation to be performed.
         'if': If some element(s) meet some criteria, then perform some set of instructions.
-        'elif': If the prior 'if' did not have its criteria met, then run *this* 'if' statement instead.
+        'elif': If the prior 'if' or 'elif' did not have its criteria met, then run this 'if' statement instead.
         'else': If the prior 'if' or 'elif' did not have its criteria met, then perform some set of instructions.
         Compound Statements: (recall lines 64 and 65 of hello_world_notes.txt)
 
 >>(Python)
-
->Define the function and its arguments with the option for no arguments. (calc(n1,op,n2) may be more intuitive?)
-    def calc(n1=None, n2=None, op=None):
+>Define the function and its arguments with the option for no arguments.
+    def calc(x=None, op=None, y=None):
 
 >Return the operator codes when no arguments are given.
-    if n1 == None and n2 == None and op == None:
+    if x == None and op == None and y == None:
         return f"Add: 0\nSub: 1\nMul: 2\nDiv: 3"
 
->Evaluate arguments only if all arguments are received and they are integers.
-    if type(n1) == int and type(n2) == int and type(op) == int:
-        # perform desired operation statement
+[single-argument functions]
+>Evaluate arguments only if the first two arguments are received and they are integers.
+    if type(x) == int and type(op) == int and y == None:
+        # perform desired operation statement (lines 31 to #)
     else:
-        # return <error>
+        return <error string>
     
-    OR, for just checking that all arguments are given:
-        if n1 != None and n2 != None and op != None:
+    # OR, for just checking that all arguments are given:
+    if x != None and op != None and y == None:
+
+>Absolute value statement
+    if op == 0:
+        if x >= 0:
+            return x
+        else:
+            return -x
+
+>Factorial statement
+Only for numbers larger than 2.
+Multiply integers from 1 to x with a for loop.
+    elif x > 1 and n2 == 1:
+        for temp in range(1, x):
+            x = x * temp
+        return x
+
+>Incorrect operator code statement
+    else:
+        return <error string>
+
+[dual-argument functions]
+>Evaluate arguments only if all arguments are received and they are integers.
+    if type(x) == int and type(op) == int and type(y) == int:
+        # perform desired operation statement (lines # to #)
+    else:
+        return <error string>
+    
+    # OR:
+    if x != None and op != None and y != None:
 
 >Addition statement
     if op == 0:
         return x + y
 
->Subtraction statement; using 'elif' to avoid checking subsequent statements if 0 < op < 6.
+>Subtraction statement
     elif op == 1:
         return x - y
 
@@ -49,13 +77,23 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
     elif op == 4:
         return x ** y
 
->Concatenation statement; convert integers to strings so values are concatenated instead of added; convert result back to integer for use in other calculations.
+>Concatenation statement
+Convert integers to strings so the values are concatenated instead of added.
+Convert the result back to an integer for use in other calculations.
     elif op == 5:
         x = str(x)
         y = str(y)
         temp = x + y
         return int(temp)
 
+>Modulo statement
+    elif op == 5:
+        return x % y
+
+>Square root statement
+    elif op == 6:
+        <three_functions2.py>
+
 >Incorrect operator code statement
     else:
-        return <error>
+        return <error string>
