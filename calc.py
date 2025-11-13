@@ -28,21 +28,21 @@ def calc(n1=None, op=None, n2=None):             # define function and arguments
     # [dual-argument functions]
     # if and only if all args are given *and* arg types are integers, then run desired operation
     elif type(n1) == int and type(op) == int and type(n2) == int:
-        if op == 0:
-            return n1 + n2    # addition statement
-        elif op == 1:
-            return n1 - n2    # subtraction statement
-        elif op == 2:
-            return n1 * n2    # multiplication statement
-        elif op == 3:
-            return n1 / n2    # division statement
-        elif op == 4:
-            return n1 ** n2   # power statement
-        elif n1 >= 0 and op == 5 and n2 >= 0:
+        if op == 0:           # addition statement
+            return n1 + n2
+        elif op == 1:         # subtraction statement
+            return n1 - n2
+        elif op == 2:         # multiplication statement
+            return n1 * n2
+        elif op == 3:         # division statement
+            return n1 / n2
+        elif op == 4:         # power statement
+            return n1 ** n2
+        elif n1 >= 0 and op == 5 and n2 >= 0: # concatenation statment
             n1 = str(n1)      # convert n1 and n2 to strings
             n2 = str(n2)
             x = n1 + n2
-            return int(x)     # return result as an integer for use in further calculations (see line 41)
+            return int(x)     # return result as an integer for use in further calculations
         elif op == 6:         # modulo statement
             return n1 % n2
         else:
