@@ -16,12 +16,12 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
 
 >Return the operator codes when no arguments are given.
     if x == None and op == None and y == None:
-        return f"Add: 0\nSub: 1\nMul: 2\nDiv: 3"
+        return f"Add: 0\nSub: 1\nMul: 2\nDiv: 3 <etc>"
 
-[single-argument functions]
+[single-argument statements]
 >Evaluate arguments only if the first two arguments are received and they are integers.
     if type(x) == int and type(op) == int and y == None:
-        # perform desired operation statement (lines 31 to #)
+        # perform desired operation statement (lines 31 to 45)
     else:
         return <error string>
     
@@ -29,6 +29,7 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
     if x != None and op != None and y == None:
 
 >Absolute value statement
+    # Set the operator code condition and return the result of the function.
     if op == 0:
         if x >= 0:
             return x
@@ -36,18 +37,28 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
             return -x
 
 >Factorial statement
-Only for numbers larger than 2.
-Multiply integers from 1 to x with a for loop.
-    elif x > 1 and n2 == 1:
-        for temp in range(1, x):
-            x = x * temp
+    # Only allow numbers larger than 2.
+    # Multiply integers together from 1 to x with a for loop.
+    elif x > 1 and op == 1:
+        for k in range(1, x):
+            x = x * k
         return x
+
+>Square root statement
+    Use optimized version of the square root approximation function from three_functions2.py.
+        While loop switched to for loop.
+        Guess is now prechosen.
+    elif op == 2:
+        temp = 1
+        for k in range (0, 100):
+            temp = (temp + (x / temp)) / 2
+        return temp
 
 >Incorrect operator code statement
     else:
         return <error string>
 
-[dual-argument functions]
+[dual-argument statements]
 >Evaluate arguments only if all arguments are received and they are integers.
     if type(x) == int and type(op) == int and type(y) == int:
         # perform desired operation statement (lines # to #)
@@ -87,12 +98,8 @@ Convert the result back to an integer for use in other calculations.
         return int(temp)
 
 >Modulo statement
-    elif op == 5:
-        return x % y
-
->Square root statement
     elif op == 6:
-        <three_functions2.py>
+        return x % y
 
 >Incorrect operator code statement
     else:
