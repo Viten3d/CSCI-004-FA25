@@ -1,9 +1,33 @@
-def calc(n1=None, n2=None, op=None):             # define function and arguments
-    if n1 == None and n2 == None and op == None: # if no args are given, then display operator codes + format
-        return f"calc(<integer>,<integer>,<operator code>)\nAdd: 0\nSub: 1\nMul: 2\nDiv: 3\nPow: 4\nCon: 5"
+def calc(n1=None, op=None, n2=None):             # define function and arguments
+    if n1 == None and op == None and n2 == None: # if no args are given, then display operator codes + format
+        return f"[1-ARG]\ncalc(<integer(n)>,<operator code>)\nAbs: 0\nFac: 1 (n > 1)\nSqt: 2 (n > 0)\n\n[2-ARG]\ncalc(<integer>,<operator code>,<integer>)\nAdd: 0\nSub: 1\nMul: 2\nDiv: 3\nPow: 4\nCon: 5 (n >= 0)\nMdl: 6\n"
 
+    # [single-argument functions]
+    # if and only if the first two args are given *and* arg types are integers, then run desired operation
+    elif type(n1) == int and type(op) == int and n2 == None:
+        if op == 0:                 # absolute value statement
+            if n1 >= 0:
+                return n1
+            else:
+                return -n1
+        elif n1 > 1 and op == 1:    # factorial statement
+            for k in range(1, n1):
+                n1 = n1 * k
+            return n1
+        elif n1 > 0 and op == 2:    # square root statement
+            temp = 1
+            for k in range (0, 100):
+                temp = (temp + (n1 / temp)) / 2
+            return temp
+        else:
+            if (n1 <= 1 and op == 1) or (n1 <= 0 and op == 2):
+                return "Invalid argument."
+            else:
+                return "Invalid operator argument."
+
+    # [dual-argument functions]
     # if and only if all args are given *and* arg types are integers, then run desired operation
-    elif type(n1) == int and type(n2) == int and type(op) == int:
+    elif type(n1) == int and type(op) == int and type(n2) == int:
         if op == 0:
             return n1 + n2    # addition statement
         elif op == 1:
@@ -14,29 +38,50 @@ def calc(n1=None, n2=None, op=None):             # define function and arguments
             return n1 / n2    # division statement
         elif op == 4:
             return n1 ** n2   # power statement
-        elif op == 5:
+        elif n1 >= 0 and op == 5 and n2 >= 0:
             n1 = str(n1)      # convert n1 and n2 to strings
             n2 = str(n2)
             x = n1 + n2       # concatenation statement
             return int(x)     # return result as an integer for use in further calculations (see line 41)
+        elif op == 6:         # modulo statement
+            return n1 % n2
         else:
-            return "Invalid operator argument."
+            if op == 5 and (n1 < 0 or n2 < 0):
+                return "Invalid argument(s)."
+            else:
+                return "Invalid operator argument."
     else:
-        return "Insufficient/invalid arguments."
+        if n1 != None and op == None and n2 == None:
+            return "Insufficient arguments."
+        elif type(n1) != int or type(op) != int or type(n2) != int:
+            return "Invalid arguments."
+        else:
+            return "Rare error achieved."
 
 # testing
 #"""
-print(calc())               # output codes
-print(calc(1,2))            # output arg error, reason: arg(s) missing
-print(calc(1.1,2.2,0))      # output arg error, reason: arg(s) not 'int'
-print(calc(1,2,11))         # output operator arg error
-print(calc(5,5,0))          #      5 + 5 -> 10
-print(calc(1,-1,0))         #   1 + (-1) -> 0
-print(calc(0,-1,1))         #   0 - (-1) -> 1
-print(calc(0,5,3))          #      0 / 5 -> 0.0
-print(calc(4,2,3))          #      4 / 2 -> 2.0
-print(calc(2,1,2))          #      2 * 1 -> 2
-print(calc(3,2,2))          #      3 * 2 -> 6
-print(calc(3,2,4))          #      3 ^ 2 -> 9
-print(calc(2,5,5) - 5)      # (2||5) - 5 -> 20
+print("Function Info:")
+print(calc())
+
+print("Function test results:")
+print(f"Abs: {calc(-40,0)}")   #    |-40| -> 40
+print(f"Fac: {calc(5,1)}")     #       5! -> 120
+print(f"Sqt: {calc(256,2)}")   #     √256 -> 16.0
+print(f"Add: {calc(1,0,-1)}")  # 1 + (-1) -> 0
+print(f"Sub: {calc(3,1,-3)}")  # 3 - (-3) -> 6
+print(f"Mul: {calc(5,2,2)}")   #    5 * 2 -> 10
+print(f"Div: {calc(0,3,4)}")   #    0 / 4 -> 0.0
+print(f"Pow: {calc(2,4,5)}")   #   2 ** 5 -> 32
+print(f"Con: {calc(7,5,9)}")   #   7 || 9 -> 79
+print(f"Mdl: {calc(22,6,3)}")  #   22 % 3 -> 1
+
+print("\nError testing:")
+print(f"1: {calc(11)}")        # incorrect amount of arguments
+print(f"2: {calc(False,0)}")   # incorrect argument type (1-arg)
+print(f"3: {calc(0,3.0,23)}")  # incorrect argument type (2-arg)
+print(f"4: {calc(6,24)}")      # operator out of range (1-arg)
+print(f"5: {calc(6,24,7)}")    # operator out of range (2-arg)
+print(f"6: {calc(-5,1)}")      # factorial argument too small
+print(f"7: {calc(0,2)}")       # square root argument too small
+print(f"8: {calc(0,5,-5)}")    # concatenation argument too small
 #"""
