@@ -41,7 +41,7 @@ def calc(n1=None, op=None, n2=None):             # define function and arguments
         elif n1 >= 0 and op == 5 and n2 >= 0:
             n1 = str(n1)      # convert n1 and n2 to strings
             n2 = str(n2)
-            x = n1 + n2       # concatenation statement
+            x = n1 + n2
             return int(x)     # return result as an integer for use in further calculations (see line 41)
         elif op == 6:         # modulo statement
             return n1 % n2
