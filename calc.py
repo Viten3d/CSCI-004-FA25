@@ -1,6 +1,6 @@
 def calc(n1=None, op=None, n2=None):             # define function and arguments
     if n1 == None and op == None and n2 == None: # if no args are given, then display operator codes + format
-        return f"[1-ARG]\ncalc(<integer(n)>,<operator code>)\nAbs: 0\nFac: 1 (n > 1)\nSqt: 2 (n > 0)\n\n[2-ARG]\ncalc(<integer>,<operator code>,<integer>)\nAdd: 0\nSub: 1\nMul: 2\nDiv: 3\nPow: 4\nCon: 5 (n >= 0)\nMdl: 6\n"
+        return f"[1-ARG]\ncalc(<integer(n)>,<operator code>)\nAbs: 0\nFac: 1 (n > 1)\nSqt: 2 (n > 0)\nD2B: 3 (n > 0)\n\n[2-ARG]\ncalc(<integer>,<operator code>,<integer>)\nAdd: 0\nSub: 1\nMul: 2\nDiv: 3\nPow: 4\nCon: 5 (n >= 0)\nMdl: 6\n"
 
     # [single-argument functions]
     # if and only if the first two args are given *and* arg types are integers, then run desired operation
@@ -10,15 +10,44 @@ def calc(n1=None, op=None, n2=None):             # define function and arguments
                 return n1
             else:
                 return -n1
-        elif n1 > 1 and op == 1:    # factorial statement
+        elif op == 1 and n1 > 1:    # factorial statement
             for k in range(1, n1):
                 n1 = n1 * k
             return n1
-        elif n1 > 0 and op == 2:    # square root statement
+        elif op == 2 and n1 > 0:    # square root statement
             temp = 1
             for k in range (0, 100):
                 temp = (temp + (n1 / temp)) / 2
             return temp
+        elif op == 3 and n1 > 0:    # decimal to binary conversion
+            # look for biggest x where 2^x <= n1
+            pwr = 0
+            while 2 ** pwr <= n1:
+                pwr += 1
+            pwr -= 1 # account for the final increment that ended loop
+
+            # create placeholder list for the binary digits
+            binlst = []
+            for k in range(0, pwr): # add 'x' zeros to the list
+                binlst.append(0)
+
+            # check descending powers of 2 and update list accordingly
+            psum = 2 ** pwr
+            for k in range(1, pwr + 1):
+                psum += (2 ** (pwr - k))
+                if psum > n1:
+                    psum -= (2 ** (pwr - k))
+                else:
+                    binlst[pwr - k] = 1
+
+            # format the binary list values as an integer
+            bin_num = "1"
+            k = pwr - 1
+            while k >= 0: # concatenate binary digits
+                bin_num += str(binlst[k])
+                k -= 1
+
+            return int(bin_num) # return binary number
         else:
             if (n1 <= 1 and op == 1) or (n1 <= 0 and op == 2):
                 return "Invalid argument."
@@ -38,7 +67,7 @@ def calc(n1=None, op=None, n2=None):             # define function and arguments
             return n1 / n2
         elif op == 4:         # power statement
             return n1 ** n2
-        elif n1 >= 0 and op == 5 and n2 >= 0: # concatenation statment
+        elif op == 5 and n1 >= 0 and n2 >= 0: # concatenation statement
             n1 = str(n1)      # convert n1 and n2 to strings
             n2 = str(n2)
             x = n1 + n2
@@ -74,6 +103,7 @@ print(f"Div: {calc(0,3,4)}")   #    0 / 4 -> 0.0
 print(f"Pow: {calc(2,4,5)}")   #   2 ** 5 -> 32
 print(f"Con: {calc(7,5,9)}")   #   7 || 9 -> 79
 print(f"Mdl: {calc(22,6,3)}")  #   22 % 3 -> 1
+print(f"D2B: {calc(6,3)}")     #     6_10 -> 110_2
 
 print("\nError testing:")
 print(f"1: {calc(11)}")        # incorrect amount of arguments
