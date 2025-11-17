@@ -49,8 +49,8 @@ def calc(n1=None, op=None, n2=None):             # define function and arguments
 
             return int(bin_num) # return binary number
         else:
-            if (n1 <= 1 and op == 1) or (n1 <= 0 and op == 2):
-                return "Invalid argument."
+            if (n1 <= 1 and op == 1) or (n1 <= 0 and (op == 2 or op == 3)):
+                return "Argument too small."
             else:
                 return "Invalid operator argument."
 
@@ -76,14 +76,14 @@ def calc(n1=None, op=None, n2=None):             # define function and arguments
             return n1 % n2
         else:
             if op == 5 and (n1 < 0 or n2 < 0):
-                return "Invalid argument(s)."
+                return "Argument(s) too small."
             else:
                 return "Invalid operator argument."
     else:
         if n1 != None and op == None and n2 == None:
             return "Insufficient arguments."
         elif type(n1) != int or type(op) != int or type(n2) != int:
-            return "Invalid arguments."
+            return "Invalid argument type."
         else:
             return "Rare error achieved."
 
@@ -114,4 +114,5 @@ print(f"5: {calc(6,24,7)}")    # operator out of range (2-arg)
 print(f"6: {calc(-5,1)}")      # factorial argument too small
 print(f"7: {calc(0,2)}")       # square root argument too small
 print(f"8: {calc(0,5,-5)}")    # concatenation argument too small
+print(f"9: {calc(-6,3)}")      # binary conversion arg too small
 #"""
