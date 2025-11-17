@@ -1,13 +1,13 @@
->>What is a calculator?
+>>What is a calculator? (in this case)
 A program that takes numerical values and performs some desired operation (logic) with those values, returning the result.
     A program is a set of functions (smaller sets of instructions) combined to complete a task.
 
 >>How do I want the calculator to work?
-Receive two numerical arguments (integers) to be evaluated and one to determine the method of evaluation. Return the end result.
+Receive one or two numerical arguments (integers) to be evaluated and one to determine the method of evaluation. Return the end result.
     Use 'if' compound statements (if/elif/else) to ascertain the specific operation to be performed.
         'if': If some element(s) meet some criteria, then perform some set of instructions.
         'elif': If the prior 'if' or 'elif' did not have its criteria met, then run this 'if' statement instead.
-        'else': If the prior 'if' or 'elif' did not have its criteria met, then perform some set of instructions.
+        'else': If the prior 'if' or 'elif' did not have its criteria met, then perform some task (that may or may not include an if statement).
         Compound Statements: (recall lines 64 and 65 of hello_world_notes.txt)
 
 >>(Python)
@@ -21,7 +21,7 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
 [single-argument statements]
 >Evaluate arguments only if the first two arguments are received and they are integers.
     if type(x) == int and type(op) == int and y == None:
-        # perform desired operation statement (lines 31 to 45)
+        # perform desired operation statement (lines 31 to 90)
     else:
         return <error string>
     
@@ -29,7 +29,7 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
     if x != None and op != None and y == None:
 
 >Absolute value statement
-    # Set the operator code condition and return the result of the function.
+ -Set the operator code condition and return the result of the function.
     if op == 0:
         if x >= 0:
             return x
@@ -37,22 +37,57 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
             return -x
 
 >Factorial statement
-    # Only allow numbers larger than 2.
-    # Multiply integers together from 1 to x with a for loop.
-    elif x > 1 and op == 1:
+ -Only allow numbers larger than 1.
+ -Multiply integers together from 1 to x with a for loop.
+    elif op == 1 and x > 1:
         for k in range(1, x):
             x = x * k
         return x
 
 >Square root statement
-    Use optimized version of the square root approximation function from three_functions2.py.
-        While loop switched to for loop.
-        Guess is now prechosen.
+ -Use optimized version of the square root approximation function from three_functions2.py.
+ -While loop switched to for loop.
+ -Guess is now prechosen.
     elif op == 2:
         temp = 1
         for k in range (0, 100):
             temp = (temp + (x / temp)) / 2
         return temp
+
+>Decimal to binary conversion statement
+ -Look for the largest 'x', where 2^x <= decimal input.
+ -Decrement 'pwr' to correct the last increment that ended the loop.
+    pwr = 0
+    while 2 ** pwr <= dec_num:
+        pwr += 1
+    pwr -= 1
+
+ -Create a list with 'x' zeros for storing the binary digits later.
+    binlst = []
+    for k in range(0, pwr):
+        binlst.append(0)
+
+ -Check if the sum of descending powers of two is larger than the decimal input.
+ -If so, subtract the last power of two added to the sum.
+ -If not, update the 'xth' position of the binary list from 0 to 1.
+    psum = 2 ** pwr
+    for k in range(1, pwr + 1):
+        psum += (2 ** (pwr - k))
+        if psum > dec_num:
+            psum -= (2 ** (pwr - k))
+        else:
+            binlst[pwr - k] = 1
+
+ -Collect the digits into a single string (inverting digit order).
+ -Start with "1" as the first digit because all binary numbers greater than zero start with a one.
+    bin_num = "1"
+    k = pwr - 1
+    while k >= 0: # concatenate binary digits
+        bin_num += str(binlst[k])
+        k -= 1
+
+ -Output the compiled value as a string or an integer.
+    return bin_num # OR: int(bin_num)
 
 >Incorrect operator code statement
     else:
@@ -61,7 +96,7 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
 [dual-argument statements]
 >Evaluate arguments only if all arguments are received and they are integers.
     if type(x) == int and type(op) == int and type(y) == int:
-        # perform desired operation statement (lines # to #)
+        # perform desired operation statement (lines 106 to 137)
     else:
         return <error string>
     
@@ -89,8 +124,8 @@ Receive two numerical arguments (integers) to be evaluated and one to determine 
         return x ** y
 
 >Concatenation statement
-Convert integers to strings so the values are concatenated instead of added.
-Convert the result back to an integer for use in other calculations.
+ -Convert integers to strings so the values are concatenated instead of added.
+ -Convert the result back to an integer for use in other calculations.
     elif op == 5:
         x = str(x)
         y = str(y)
