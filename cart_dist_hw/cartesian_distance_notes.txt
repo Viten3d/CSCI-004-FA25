@@ -1,0 +1,35 @@
+>>How do you calculate the distance between two points in a Cartesian coordinate system?
+Take two points -> A:(x1,y1) and B:(x2,y2).
+Draw lines x = x1 and y = y2 OR x = x2 and y = y1, letting their intersection be C.
+Form a triangle with points A, B, and C.
+Length(AC or BC) = |x1 - x2|   Length(BC or AC) = |y1 - y2|
+Pythagorean Theorem: a^2 + b^2 = c^2 -> c = sqrt(a^2 + b^2)
+AC^2 + BC^2 = AB^2 -> AB = sqrt(AC^2 + BC^2)
+AB = sqrt(|x1 - x2|^2 + |y1 - y2|^2)
+(absolute value is redundant as n^2 is positive for all Real values of n)
+Generalized: Distance = sqrt[(x1 - x2)^2 + (y1 - y2)^2]
+
+>>(Python/Pseudocode)
+>Paste the square root function from calc.py for use in the distance formula.
+    def sqrt(temp):
+        g = 1
+        for k in range (0, 100):
+            g = (g + (temp / g)) / 2
+        return g
+
+>Create a function that takes two arguments.
+    def cart_dist(point_1, point_2):
+        <logic>
+
+>Display function syntax when used with no arguments.
+    if point_1 and point_2 == None:
+        return <info>
+
+>Ensure that both arguments are of type 'list', with two elements of type 'float' or 'int'.
+    elif (type(point_1 or point_2) != list) or (type(point_1[0] or point_1[1] or point_2[0] or point_2[1]) != (float or int)):
+        return <error>
+
+>Insert the elements from the arguments into the distance formula and output the result.
+    else:
+        distance = sqrt(((point_1[0] - point_2[0]) ** 2) + ((point_1[1] - point_2[1]) ** 2))
+        return distance
