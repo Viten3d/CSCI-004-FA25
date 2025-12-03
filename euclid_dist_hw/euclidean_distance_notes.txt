@@ -1,13 +1,25 @@
->>How do you calculate the distance between two points in a Cartesian coordinate system?
+>>How do you calculate the distance between two points in a 2D Cartesian coordinate system?
 Take two points -> A:(x1,y1) and B:(x2,y2).
-Draw lines x = x1 and y = y2 OR x = x2 and y = y1, letting their intersection be C.
-Form a triangle with points A, B, and C.
-Length(AC or BC) = |x1 - x2|   Length(BC or AC) = |y1 - y2|
+Let point C be (x3,y3) where x3 = x1 and y3 = y2.
+Notice points A, B, and C form a right triangle.
+Length(AC) = |y1 - y3| = |y1 - y2|
+Length(BC) = |x2 - x3| = |x2 - x1|
 Pythagorean Theorem: a^2 + b^2 = c^2 -> c = sqrt(a^2 + b^2)
 AC^2 + BC^2 = AB^2 -> AB = sqrt(AC^2 + BC^2)
-AB = sqrt(|x1 - x2|^2 + |y1 - y2|^2)
+AB = sqrt(|y1 - y2|^2 + |x2 - x1|^2)
 (absolute value is redundant as n^2 is positive for all Real values of n)
-Generalized: Distance = sqrt[(x1 - x2)^2 + (y1 - y2)^2]
+Generalized: D_2D = sqrt[(x1 - x2)^2 + (y1 - y2)^2]
+
+>>How do you calculate the distance between two points in a 3D Cartesian coordinate system?
+Take two points -> A:(x1,y1,z1) and B:(x2,y2,z2).
+Let point C be (x3,y3,z3) where x3 = x1 and y3 = y2 and z3 = z1.
+Notice points A, B, and C form a right triangle.
+Length(AC) = |y1 - y3| = |y1 - y2|
+Length(BC) = D_2D[(x2,z2),(x3,z3)] = D_2D[(x2,z2),(x1,z1)]
+Pythagorean Theorem: a^2 + b^2 = c^2 -> c = sqrt(a^2 + b^2)
+AC^2 + BC^2 = AB^2 -> AB = sqrt(AC^2 + BC^2)
+AB = sqrt[|y1 - y2|^2 + sqrt(|x1 - x2|^2 + |z1 - z2|^2)^2]
+Generalized: D_3D = sqrt[(x1 - x2)^2 + (y1 - y2)^2 + (z1 - z2)^2]
 
 >>(Python/Pseudocode)
 >Paste the square root function from calc.py for use in the distance formula.
@@ -17,19 +29,29 @@ Generalized: Distance = sqrt[(x1 - x2)^2 + (y1 - y2)^2]
             g = (g + (temp / g)) / 2
         return g
 
->Create a function that takes two arguments.
-    def cart_dist(point_1, point_2):
+>Create a function that takes one argument with the option for zero arguments.
+    def cart_dist(coords=None):
         <logic>
 
 >Display function syntax when used with no arguments.
-    if point_1 and point_2 == None:
+    if coords == None:
         return <info>
 
->Ensure that both arguments are of type 'list', with two elements of type 'float' or 'int'.
-    elif (type(point_1 or point_2) != list) or (type(point_1[0] or point_1[1] or point_2[0] or point_2[1]) != (float or int)):
-        return <error>
+>Ensure that the argument is of type 'list' and contains exactly four or six elements.
+    elif type(coords) != list:
+        return <type error>
+    elif len(coords) != (4 and 6):
+        return <length error>
 
->Insert the elements from the arguments into the distance formula and output the result.
-    else:
-        distance = sqrt(((point_1[0] - point_2[0]) ** 2) + ((point_1[1] - point_2[1]) ** 2))
-        return distance
+>Insert the elements from the list argument into the relevant distance formula and output the result. (ONLY IF each element type is 'float' or 'int')
+    elif len(coords) == 4:
+        if type(coords[0 or 1 or 2 or 3]) != (float and int):
+            return <type error>
+        else:
+            return <2D distance from line 11>
+
+    elif len(coords) == 6:
+        if type(coords[0 or 1 or 2 or 3 or 4 or 5]) != (float and int):
+            return <type error>
+        else:
+            return <3D distance from line 22>
