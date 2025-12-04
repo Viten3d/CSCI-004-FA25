@@ -1,7 +1,7 @@
 # This is a function for calculating distances between points on a complex plane.
 # This function will take the entire coordinate as x+yi, instead of just taking x and y independently.
 
-# Coming Soon: Support for coordinates with only one component (x, -x, yi, -yi)
+# Coming Soon: Support for y = 1 (x+i) and coordinates with only one component (x, -x, yi, -yi)
 
 # square root approximator function
 def sqrt(rdc):
@@ -14,8 +14,17 @@ def sqrt(rdc):
 
 # complex distance function
 def complex_dist(coords):   # define function
+    """
+    ## SINGLE COMPONENT ##
     # check if coordinate only has x component
-    
+    x1_sgl = 0
+    if coords[0][len(coords[0]) - 1] != 'i':
+        x1_sgl = float(coords[0])
+    x2_sgl = 0
+    if coords[1][len(coords[1]) - 1] != 'i':
+        x2_sgl = float(coords[1])
+    #"""
+    ## DUAL COMPONENT ##
     # check if x-values are negative
     x1_neg = 0              # memory variables
     x2_neg = 0
@@ -90,4 +99,4 @@ def complex_dist(coords):   # define function
     return sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
 #"""
 
-print(complex_dist(['-25-44i','-52+233i']))
+print(complex_dist(['25+4i','-52+233i']))
