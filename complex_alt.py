@@ -1,7 +1,7 @@
 # This is a function for calculating distances between points on a complex plane.
 # This function will take the entire coordinate as x+yi, instead of just taking x and y independently.
 
-# Coming Soon: Support for negative x-values (-x+yi and -x-yi) and coordinates with only one component (x or yi)
+# Coming Soon: Support for coordinates with only one component (x, -x, yi, -yi)
 
 # square root approximator function
 def sqrt(rdc):
@@ -14,13 +14,18 @@ def sqrt(rdc):
 
 # complex distance function
 def complex_dist(coords):   # define function
-    """
-    c1_x1_neg = 0
-    #c2_x2_neg = 0
-    if coords[0][0] == '-':
-        coords[0].pop(0)
-        c1_x1_neg = 1
-    """
+    # check if coordinate only has x component
+    
+    # check if x-values are negative
+    x1_neg = 0              # memory variables
+    x2_neg = 0
+    if coords[0][0] == '-': # remove negative if present so operator check isn't broken
+        coords[0] = coords[0].removeprefix('-')
+        x1_neg = 1
+    if coords[1][0] == '-':
+        coords[1] = coords[1].removeprefix('-')
+        x2_neg = 1
+    #"""
     # determine where the operators are
     oplst = [0,0]           # list to store operator indices
     for c in range(0, 2):   # search for operator location
@@ -65,18 +70,24 @@ def complex_dist(coords):   # define function
             y2 = str(y2) + str(coords[1][k])
 #"""
     # convert x and y values back to numerical values
-    x1 = float(x1)
+    if x1_neg == 1:
+        x1 = -float(x1)
+    else:
+        x1 = float(x1)
     if coords[0][op1] == '-':
         y1 = -float(y1)
     else:
         y1 = float(y1)
-    x2 = float(x2)
+    if x2_neg == 1:
+        x2 = -float(x2)
+    else:
+        x2 = float(x2)
     if coords[1][op2] == '-':
         y2 = -float(y2)
     else:
         y2 = float(y2)
-    #return f"x1: {x1} | y1: {y1} | x2: {x2} | y2: {y2}"
+    #return f"x1: {x1} | y1: {y1} | x2: {x2} | y2: {y2}" #debug
     return sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
 #"""
 
-print(complex_dist(['26-63i','52+101i']))
+print(complex_dist(['-25-44i','-52+233i']))
